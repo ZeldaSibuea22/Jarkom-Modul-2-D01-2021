@@ -118,7 +118,16 @@ options {
         allow-transfer { 192.192.2.3; }; // IP Water7 DNS Slave dan untuk delegasi subdomain
         file "/etc/bind/kaizoku/franky.d01.com";
 };
+zone "2.192.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/kaizoku/2.192.192.in-addr.arpa";
+};
 ```
+#### Testing
+ping mecha.franky.d01.com 
+![image](https://user-images.githubusercontent.com/73489643/139533618-c85d4dbc-e6d4-49e7-a64a-78c357021a38.png)
+
+
 
 
 ## Soal 7
