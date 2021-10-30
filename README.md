@@ -44,7 +44,7 @@ Luffy ingin menghubungi Franky yang berada di EniesLobby dengan denden mushi.
 Kalian diminta Luffy untuk membuat website utama dengan mengakses franky.yyy.com 
 dengan alias www.franky.yyy.com pada folder kaizoku.<br><br>
 ### Jawaban
-* Untuk Server EniesLobby
+* Untuk Server EniesLobby<br>
 jalankan file script.sh di EniesLobby, dan tunggu sampai download-nya selesai.<br>
 Untuk hasil download dari file script.sh sebagai berikut.
 ```
@@ -77,7 +77,7 @@ $TTL    604800
 ```
 Setelah itu lakukan restart bind9 dengan ketik command `service bind9 restart`.
 
-* Untuk Server Loguetown 
+* Untuk Server Loguetown<br> 
 Testing 1 : Ping `franky.d01.com`
 <img src="img/soal2_testing.png">
 
@@ -85,10 +85,77 @@ Testing 2 : Ping `www.franky.d01.com`
 <img src="img/soal2_testing1.png">
 
 ## Soal 3
+Setelah itu buat subdomain super.franky.yyy.com dengan alias www.super.franky.yyy.com 
+yang diatur DNS nya di EniesLobby dan mengarah ke Skypie.<br><br>
 
+### Jawaban
+* Untuk Server EniesLobby<br>
+Seperti pada nomor 2, jalankan soal3.sh dengan bash di EniesLobby, lalu lakukan restart. Selanjutnya, lakukan edit pada
+file `/etc/bind/kaizoku/franky.d01.com` dengan sebagai berikut :
+```
+$TTL    604800
+    @       IN      SOA     franky.d01.com. root.franky.d01.com. (
+                                2         ; Serial
+                            604800         ; Refresh
+                            86400         ; Retry
+                            2419200         ; Expire
+                            604800 )       ; Negative Cache TTL
+    ;
+    @       IN      NS      franky.d01.com.
+    @       IN      A       192.192.2.2
+    www     IN      CNAME   franky.d01.com.
+    super   IN      A       192.192.2.4     ; subdomain ke arah IP Skypie
+    www.super       IN      CNAME   super.franky.d01.com.
+```
+Lalu, restart bind9 dengan ketik command `service bind9 restart`.
+
+* Untuk Server Loguetown<br> 
+Testing 1 : Ping `franky.d01.com`
+<img src="img/soal3_testing.png">
+
+Testing 2 : Ping `www.franky.d01.com`
+<img src="img/soal3_testing1.png">
 
 ## Soal 4
+Buat juga reverse domain untuk domain utama.<br><br>
 
+### Jawaban
+* Untuk Server EniesLobby<br>
+Jalankan soal4.sh dengan bash di EniesLobby, lalu lakukan restart. Selanjutnya, edit file konfigurasi /etc/bind/named.conf.local
+pada file soal4.sh dengan sebagai berikut :
+```
+zone "franky.d01.com" {
+        type master;
+        file "/etc/bind/kaizoku/franky.d01.com";
+};
+
+zone "2.192.192.in-addr.arpa" {
+        type master;
+        file "/etc/bind/kaizoku/2.192.192.in-addr.arpa";
+};
+```
+dan juga lakukan konfigurasi pada file `/etc/bind/kaizoku/2.192.192.in-addr.arpa` dengan sebagai berikut :
+```
+$TTL    604800
+    @       IN      SOA     franky.d01.com. root.franky.d01.com. (
+                                2         ; Serial
+                            604800         ; Refresh
+                            86400         ; Retry
+                            2419200         ; Expire
+                            604800 )       ; Negative Cache TTL                                                              24,1    2
+    ;0%                                                            25,1    4
+    2.192.192.in-addr.arpa.         IN      NS      franky.d01.com.0%                                                            26,1    6
+    2                               IN      PTR     franky.d01.com. ; BYTE niesLobbyE0%
+```
+Kemudian, jalankan file script.sh di LogueTown, dan tunggu sampai download-nya selesai. Jika sudah,
+pindahkankan nameserver ke EniesLobby dengan sebagai berikut:
+```
+echo 
+'nameserver 192.192.2.2'
+```
+* Untuk Server Loguetown<br> 
+Testing : cek dengan `host -t PTR 192.192.2.2`.
+<img src="img/soal3_testing.png">
 
 ## Soal 5
 
