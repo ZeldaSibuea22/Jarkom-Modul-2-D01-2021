@@ -33,17 +33,25 @@ Setelah melakukan konfigurasi server, maka dilakukan konfigurasi Webserver. Pert
 ### Jawaban
 
 ## Soal 9
+Setelah itu, Luffy juga membutuhkan agar url `www.franky.yyy.com/index.php/home` dapat menjadi menjadi `www.franky.yyy.com/home.`
+### Jawaban
 
 
 ## Soal 10
-
+Setelah itu, pada subdomain www.super.franky.yyy.com, Luffy membutuhkan penyimpanan aset yang memiliki DocumentRoot pada `/var/www/super.franky.yyy.com.`
+### Jawaban
 
 ## Soal 11
-
+Akan tetapi, pada folder `/public`, Luffy ingin hanya dapat melakukan directory listing saja.
+### Jawaban
 
 
 ## Soal 12
-
+Tidak hanya itu, Luffy juga menyiapkan error file 404.html pada folder `/error` untuk mengganti error kode pada apache
+### Jawaban
 
 
 ## Soal 13
+Luffy juga meminta Nami untuk dibuatkan konfigurasi virtual host. Virtual host ini bertujuan untuk dapat mengakses file asset www.super.franky.yyy.com/public/js menjadi www.super.franky.yyy.com/js
+### Jawaban
+
