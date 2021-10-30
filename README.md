@@ -40,8 +40,54 @@ resolv.conf
 di semua node.
 
 ## Soal 2
+Luffy ingin menghubungi Franky yang berada di EniesLobby dengan denden mushi. 
+Kalian diminta Luffy untuk membuat website utama dengan mengakses franky.yyy.com 
+dengan alias www.franky.yyy.com pada folder kaizoku.<br><br>
+### Jawaban
+# Untuk Server EniesLobby
+jalankan file script.sh di EniesLobby, dan tunggu sampai download-nya selesai.<br>
+Untuk hasil download dari file script.sh sebagai berikut.
+```
+#/!/bin/bash
+    echo nameserver 192.168.122.1 > /etc/resolv.conf
+    apt-get update
+    apt-get install bind9 -y
+```
+Lalu jalankan soal 2.sh dengan menggunakan bash di EniesLobby. Dan lakukan konfigurasi pada file `/etc/bind/named.conf.local`
+dengan menambahkan.
+```
+echo 'zone "franky.d01.com" {
+        type master;
+        file "/etc/bind/kaizoku/franky.d01.com";
+};
+```
+Selanjutnya, menambahkan direktori baru `/etc/bind/kaizoku` dengan konfigurasi `/etc/bind/kaizoku/franky.d01.com`.<br>
+```
+echo 'zone "franky.d01.com" {
+        type master;
+        file "/etc/bind/kaizoku/franky.d01.com";
+};
+```
+$TTL    604800
+    @       IN      SOA     franky.d01.com. root.franky.d01.com. (
+                                2         ; Serial
+                            604800         ; Refresh
+                            86400         ; Retry
+                            2419200         ; Expire
+                            604800 )       ; Negative Cache TTL
+    ;
+    @       IN      NS      franky.d01.com.                                                              24,1    2
+    @       IN      A       192.192.2.25%                                                            25,1    5
+    www     IN      CNAME   franky.d01.com.0%        
+```
+Setelah itu lakukan restart bind9 dengan ketik command `service bind9 restart`.
 
+# Untuk Server Loguetown 
+Testing 1 : Ping `franky.d01.com`
+<img src="img/soal2_testing.png">
 
+Testing 2 : Ping `www.franky.d01.com`
+<img src="img/soal2_testing1.png">
 ## Soal 3
 
 
