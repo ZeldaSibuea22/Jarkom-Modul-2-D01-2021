@@ -308,15 +308,15 @@ Melakukan instalasi Apache, php, openssl untuk melakukan download ke website htt
 Untuk konfigurasi file dari subdomain tersebut akan dilakukan di `/etc/apache2/sites-available/franky.d01.com.conf` dan mengisinya sebagai berikut
 
 ```
-	   ServerAdmin webmaster@localhost
+	    ServerAdmin webmaster@localhost
             ServerName franky.d01.com
             ServerAlias www.franky.d01.com
             DocumentRoot /var/www/franky.d01.com
 ```
 
-Hal ini membuat DocumentRoot dari subdomain www.franky.yyy.com akan terletak di /var/www/franky.d01.com.
+Hal ini membuat DocumentRoot dari subdomain www.franky.yyy.com akan terletak di `/var/www/franky.d01.com.`
 
-Lalu,Lalu buat sebuah direkroti root untuk server franky.d01.com dan melakukan copy file content
+Lalu,buat sebuah direkroti root untuk server franky.d01.com dan melakukan copy file content
 
 ```
     mkdir /var/www/franky.d01.com
