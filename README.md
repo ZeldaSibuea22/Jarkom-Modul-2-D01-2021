@@ -376,7 +376,7 @@ Jika melakukan perintah `lynx franky.d01.com` pada LogueTown, maka akan ditampil
 ## Soal 9
 Setelah itu, Luffy juga membutuhkan agar url `www.franky.yyy.com/index.php/home` dapat menjadi menjadi `www.franky.yyy.com/home.`
 ### Jawaban
-### Server Skypie
+#### Server Skypie
 konfigurasi file /var/www/franky.d01.com/.htaccess dengan
 
 ```
@@ -421,7 +421,7 @@ Berikut ini tampilan apabila kita menggunakan url www.franky.d01.com/home . Terl
 Setelah itu, pada subdomain www.super.franky.yyy.com, Luffy membutuhkan penyimpanan aset yang memiliki DocumentRoot pada `/var/www/super.franky.yyy.com.`
 ### Jawaban
 
-### Pada Skypie
+#### Pada Skypie
 
 Disini kami membuat directory baru di dalam /var/www/ dengan nama super.franky.d01.com, setelah itu melakukan command wget untuk mendapatkan file asset yang akan dimasukkan kedalamnya, setelah file di download akan langsung diunzip menggunakan command unzip dan memindahkan isi folder yang berupa asset lalu menghapus folder defaultnya. Di dalam /etc/apache2/sites-available/ dibuat juga file dengan nama super.franky.d01.com.conf dan diisi dengan
 
