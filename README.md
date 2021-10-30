@@ -164,17 +164,63 @@ zone "2.192.192.in-addr.arpa" {
     type master;
     file "/etc/bind/kaizoku/2.192.192.in-addr.arpa";
 };
+
 ```
+Lalu membuat sebuah direktori `mkdir /etc/bind/sunnygo` dan Lakukan konfigurasi pada file `/etc/bind/sunnygo/mecha.franky.d01.com`
+
+```
+; BIND data file for local loopback interface
+    ;
+    $TTL    604800
+    @       IN      SOA     mecha.franky.d01.com. root.mecha.franky.d01.com. (
+                                2         ; Serial
+                            604800         ; Refresh
+                            86400         ; Retry
+                            2419200         ; Expire
+                            604800 )       ; Negative Cache TTL
+    ;
+    @       IN      NS      mecha.franky.d01.com.
+    @       IN      A       192.192.2.3     ; IP Water7
+    www     IN      CNAME   mecha.franky.d01.com.
+```
+
+Setelah itu melakukan restart dengan menggunakan
+`service bind9 restart`
+
+
 #### Testing
 ping mecha.franky.d01.com 
 ![image](https://user-images.githubusercontent.com/73489643/139533618-c85d4dbc-e6d4-49e7-a64a-78c357021a38.png)
 
 
-
-
 ## Soal 7
 Untuk memperlancar komunikasi Luffy dan rekannya, dibuatkan subdomain melalui Water7 dengan nama general.mecha.franky.yyy.com dengan alias www.general.mecha.franky.yyy.com yang mengarah ke Skypie
 ### Jawaban
+#### Pada Water 7
+
+Dalam mengerjakan soal ini, kami hanya menambahkan konfigurasi pada `/etc/bind/sunnygo/mecha.franky.td01.com` menjadi sebagai berikut
+
+```
+ ; BIND data file for local loopback interface
+    ;
+    $TTL    604800
+    @       IN      SOA     mecha.franky.d01.com. root.mecha.franky.d01.com. (
+                                2         ; Serial
+                            604800         ; Refresh
+                            86400         ; Retry
+                            2419200         ; Expire
+                            604800 )       ; Negative Cache TTL
+    ;
+    @       IN      NS      mecha.franky.d01.com.
+    @       IN      A       192.192.2.3     ; IP Water7
+    www     IN      CNAME   mecha.franky.d01.com.
+    general IN      A       192.192.2.4     ; subdomain ke IP Skypie
+    www.general IN  CNAME   mecha.franky.d01.com.
+```
+Dapat dilihat bahwa kami membuat sebuah domain general dan alias www untuk general.mecha.franky.d01.com yang mengarah pada Skypie.
+
+Setelah itu lakukan restart dengan menggunakan `service bind9 restart`
+
 
 ## Soal 8
 Setelah melakukan konfigurasi server, maka dilakukan konfigurasi Webserver. Pertama dengan webserver www.franky.yyy.com. Pertama, luffy membutuhkan webserver dengan DocumentRoot pada `/var/www/franky.yyy.com.`
