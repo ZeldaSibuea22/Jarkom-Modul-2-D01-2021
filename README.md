@@ -297,6 +297,38 @@ Setelah itu lakukan restart dengan menggunakan `service bind9 restart`
 ## Soal 8
 Setelah melakukan konfigurasi server, maka dilakukan konfigurasi Webserver. Pertama dengan webserver www.franky.yyy.com. Pertama, luffy membutuhkan webserver dengan DocumentRoot pada `/var/www/franky.yyy.com.`
 ### Jawaban
+#### Pada Skype
+Melakukan instalasi Apache, php, openssl untuk melakukan download ke website https dengan cara
+```
+ apt-get update
+    apt-get install apache2
+    apt-get install php
+    apt-get install libapache2-mod-php7.0
+```
+Untuk konfigurasi file dari subdomain tersebut akan dilakukan di `/etc/apache2/sites-available/franky.d01.com.conf` dan mengisinya sebagai berikut
+
+```
+	   ServerAdmin webmaster@localhost
+            ServerName franky.d01.com
+            ServerAlias www.franky.d01.com
+            DocumentRoot /var/www/franky.d01.com
+```
+
+Hal ini membuat DocumentRoot dari subdomain www.franky.yyy.com akan terletak di /var/www/franky.d01.com.
+
+Lalu,Lalu buat sebuah direkroti root untuk server franky.d01.com dan melakukan copy file content
+
+```
+    mkdir /var/www/franky.d01.com
+    cp /root/Praktikum-Modul-2-Jarkom-main/franky/index.php /var/www/franky.d01.com
+    cp /root/Praktikum-Modul-2-Jarkom-main/franky/home.html /var/www/franky.d01.com
+    a2ensite franky.d01.com
+```
+
+#### Testing
+Jika melakukan perintah `lynx franky.d01.com` pada LogueTown, maka akan ditampilkan hasil seperti berikut ini
+
+
 
 ## Soal 9
 Setelah itu, Luffy juga membutuhkan agar url `www.franky.yyy.com/index.php/home` dapat menjadi menjadi `www.franky.yyy.com/home.`
