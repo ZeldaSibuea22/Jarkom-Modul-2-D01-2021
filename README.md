@@ -21,7 +21,7 @@ Untuk Topologi yang sudah kami buat sebagai berikut.
 ## Soal 6
 Setelah itu terdapat subdomain mecha.franky.yyy.com dengan alias www.mecha.franky.yyy.com yang didelegasikan dari EniesLobby ke Water7 dengan IP menuju ke Skypie dalam folder sunnygo
 
-#### Jawaban
+### Jawaban
 
 ## Soal 7
 
