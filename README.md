@@ -45,7 +45,7 @@ Kalian diminta Luffy untuk membuat website utama dengan mengakses franky.yyy.com
 dengan alias www.franky.yyy.com pada folder kaizoku.<br><br>
 ### Jawaban
 * Untuk Server EniesLobby<br>
-jalankan file script.sh di EniesLobby, dan tunggu sampai download-nya selesai.<br>
+Jalankan file script.sh di EniesLobby, dan tunggu sampai download-nya selesai.<br>
 Untuk hasil download dari file script.sh sebagai berikut.
 ```
 #/!/bin/bash
@@ -158,7 +158,45 @@ Testing : cek dengan `host -t PTR 192.192.2.2`.
 <img src="img/soal4_testing.png">
 
 ## Soal 5
+Supaya tetap bisa menghubungi Franky jika server EniesLobby rusak, maka buat Water7 
+sebagai DNS Slave untuk domain utama.<br><br>
+### Jawaban
+* Untuk Server EniesLobby<br>
+Jalankan soal5.sh dengan bash di EniesLobby, lalu lakukan restart. Kemudian,
+lakukan konfigurasi pada file `/etc/bind/named.conf.local` dengan sebagai berikut :
+```
+zone "franky.d01.com" {
+        type master;
+        notify yes;
+        also-notify { 192.192.2.3; }; // IP Water7 DNS Slave
+        allow-transfer { 192.192.2.3; }; // IP Water7 DNS Slave
+        file "/etc/bind/kaizoku/franky.d01.com";
+};
 
+zone "2.192.192.in-addr.arpa" {
+        type master;
+        file "/etc/bind/kaizoku/2.192.192.in-addr.arpa";
+};
+```
+Pada konfigurasi ini bertujuan untuk melakukan konfigurasi DNS Slave yang nantinya akan
+mengarah pada `Server Water7`. Selanjutnya lakukan restart bind9 dengan ketik command `service bind9 restart`.
+
+* Untuk Server Water7<br>
+Jalankan script.sh pada server Water7, dan tunggu sampai download-nya selesai. Kemudian, jalankan juga soal5.sh pake bash pada server Water7, lalu lakukan restart.
+Selanjutnya, lakukan konfigurasi pada file `/etc/bind/named.conf.local` dengan sebagai berikut :
+```
+zone "franky.d01.com" {
+        type slave;
+        masters { 192.192.2.2; }; // IP EniesLobby DNS Master
+        file "/var/lib/bind/franky.d01.com";
+};
+```
+Lalu, lakukan restart bind9 dengan ketik command `service bind9 restart` dan juga mematikan bind 9 pada server
+EniesLobby dengan ketik command `service bind9 stop`.
+
+* Untuk Server Loguetown<br>
+Testing : Jalankan soal5.sh di LogueTown dan lakukan ping `franky.d01.com`.
+<img src="img/soal5_testing.png">
 
 ## Soal 6
 Setelah itu terdapat subdomain mecha.franky.yyy.com dengan alias www.mecha.franky.yyy.com yang didelegasikan dari EniesLobby ke Water7 dengan IP menuju ke Skypie dalam folder sunnygo
