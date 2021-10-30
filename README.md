@@ -413,12 +413,14 @@ Lalu, melakukan restart apache dengan `service apache2 restart`
 
 #### Testing
 Berikut ini tampilan apabila kita menggunakan url www.franky.d01.com/home . Terlihat sama dengan nomor 8 karena isinya memang sama.
+![image](https://user-images.githubusercontent.com/73489643/139537839-569f7801-8264-4afa-867f-d651c7ca2ee1.png)
 
 
 
 ## Soal 10
 Setelah itu, pada subdomain www.super.franky.yyy.com, Luffy membutuhkan penyimpanan aset yang memiliki DocumentRoot pada `/var/www/super.franky.yyy.com.`
 ### Jawaban
+
 
 ### Soal 11
 Akan tetapi, pada folder `/public`, Luffy ingin hanya dapat melakukan directory listing saja.
