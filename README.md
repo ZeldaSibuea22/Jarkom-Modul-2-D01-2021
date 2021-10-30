@@ -58,7 +58,7 @@ Setelah itu terdapat subdomain mecha.franky.yyy.com dengan alias www.mecha.frank
 #### Pada EniesLobby
 Pada EnisLobby kami melakukan konfigurasi pada `/etc/bind/kaizoku/franky.d01.com` sebagai berikut
 
-``
+```
 ; BIND data file for local loopback interface
 ;
 $TTL    604800
@@ -76,10 +76,10 @@ super   IN      A       192.192.2.4     ; subdomain ke arah IP Skypie
 www.super IN    CNAME   super.franky.d01.com.
 ns1     IN      A       192.192.2.3     ; IP Water7
 mecha   IN      NS      ns1             ; delegasi subdomain ke Water7
-``
+```
 Pada EniesLobby kami hanya menambahkan konfigurasi tersebut, dan tidak merubah konfigurasi pada zone. Selain itu kami juga menambahkan konfigurasi pada `/etc/bind/named.conf.options`
 
-``
+```
 options {
         directory "/var/cache/bind";
 
@@ -105,12 +105,12 @@ options {
 
         auth-nxdomain no;    # conform to RFC1035
         listen-on-v6 { any; };
- ``
+ ```
  
  #### Pada Water 7
  Pada water 7 pertama sekali menambahkan zone pada file `/etc/bind/named.conf.local` sehingga file tersebut terlihat sebagai berikut
  
- ``
+ ```
  zone "franky.d01.com" {
         type master;
         notify yes;
@@ -118,7 +118,7 @@ options {
         allow-transfer { 192.192.2.3; }; // IP Water7 DNS Slave dan untuk delegasi subdomain
         file "/etc/bind/kaizoku/franky.d01.com";
 };
-``
+```
 
 
 ## Soal 7
