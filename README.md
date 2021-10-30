@@ -192,6 +192,9 @@ Setelah itu melakukan restart dengan menggunakan
 ping mecha.franky.d01.com 
 ![image](https://user-images.githubusercontent.com/73489643/139533618-c85d4dbc-e6d4-49e7-a64a-78c357021a38.png)
 
+ping www.mecha.franky.d01.com 
+<img src="img/soal6_testing.png" width=450 >
+
 
 ## Soal 7
 Untuk memperlancar komunikasi Luffy dan rekannya, dibuatkan subdomain melalui Water7 dengan nama general.mecha.franky.yyy.com dengan alias www.general.mecha.franky.yyy.com yang mengarah ke Skypie
@@ -220,6 +223,8 @@ Dalam mengerjakan soal ini, kami hanya menambahkan konfigurasi pada `/etc/bind/s
 Dapat dilihat bahwa kami membuat sebuah domain general dan alias www untuk general.mecha.franky.d01.com yang mengarah pada Skypie.
 
 Setelah itu lakukan restart dengan menggunakan `service bind9 restart`
+
+#### Testing
 
 
 ## Soal 8
