@@ -1,11 +1,43 @@
 # Jarkom-Modul-2-D01-2021
-
 ## Soal 1
 EniesLobby akan dijadikan sebagai DNS Master, Water7 akan dijadikan DNS Slave, dan Skypie akan digunakan sebagai Web Server. Terdapat 2 Client yaitu Loguetown, dan Alabasta. Semua node terhubung pada router Foosha, sehingga dapat mengakses internet.<br><br>
 ### Jawaban
 Untuk Topologi yang sudah kami buat sebagai berikut.
 <img src="img/Topologi.png">
 
+Selanjutnya, lakukan konfigurasi setiap node yang akan dijalankan.<br>
+* Foosha
+<img src="img/ip_foosha.png">
+
+* Loguetown
+<img src="img/ip_loguetown.png">
+
+* Alabasta
+<img src="img/ip_alabasta.png">
+
+* Ennieslobby
+<img src="img/ip_ennieslobby.png">
+
+* Water7
+<img src="img/ip_water7.png">
+
+* Skypie
+<img src="img/ip_skypie.png">
+
+Kemudian, semua node diaktifkan dan juga jalankan
+```
+iptables -t nat -A 
+POSTROUTING -o eth0 -j 
+MASQUERADE -s 
+192.192.0.0/16
+```
+di Foosa supaya bisa terkoneksi ke internet. Dan jangan lupa jalankan command
+```
+echo nameserver 
+192.168.122.1 > /etc/
+resolv.conf
+``` 
+di semua node.
 
 ## Soal 2
 
