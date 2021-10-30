@@ -376,7 +376,7 @@ Jika melakukan perintah `lynx franky.d01.com` pada LogueTown, maka akan ditampil
 ## Soal 9
 Setelah itu, Luffy juga membutuhkan agar url `www.franky.yyy.com/index.php/home` dapat menjadi menjadi `www.franky.yyy.com/home.`
 ### Jawaban
-###Server Skypie
+### Server Skypie
 konfigurasi file /var/www/franky.d01.com/.htaccess dengan
 
 ```
