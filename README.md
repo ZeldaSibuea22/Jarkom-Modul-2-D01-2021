@@ -376,6 +376,44 @@ Jika melakukan perintah `lynx franky.d01.com` pada LogueTown, maka akan ditampil
 ## Soal 9
 Setelah itu, Luffy juga membutuhkan agar url `www.franky.yyy.com/index.php/home` dapat menjadi menjadi `www.franky.yyy.com/home.`
 ### Jawaban
+###Server Skypie
+konfigurasi file /var/www/franky.d01.com/.htaccess dengan
+
+```
+a2enmod rewrite
+service apache2 restart
+echo "
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) /index.php/\$1 [L]
+```
+
+Dari konfigurasi tersebut adalah kita melakukan cek apakah request tersebut adalah ke file 
+atau bukan dan ke direktori atau bukan jika hal tersebut terpenuhi aka kita membuat rule untuk melakukan direct ke /index.php/home.
+Lalu konfigurasi file `/etc/apache2/sites-available/franky.d01.com.conf`
+
+```
+<VirtualHost *:80>
+ServerAdmin webmaster@localhost
+            ServerName franky.d01.com
+            ServerAlias www.franky.d01.com
+            DocumentRoot /var/www/franky.d01.com
+
+            <Directory /var/www/franky.d01.com>
+                    Options +FollowSymLinks -Multiviews
+                    AllowOverride All
+            </Directory>
+
+	    ErrorLog ${APACHE_LOG_DIR}/error.log
+            CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+Lalu, melakukan restart apache dengan `service apache2 restart`
+
+#### Testing
+Berikut ini tampilan apabila kita menggunakan url www.franky.d01.com/home . Terlihat sama dengan nomor 8 karena isinya memang sama.
+
 
 
 ## Soal 10
