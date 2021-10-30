@@ -636,7 +636,7 @@ Pada node `Skypie` buat konfigurasi username dan password di file `.htpasswd`
 htpasswd -c /etc/apache2/.htpasswd luffy
 ```
 Kemudian isi password dengan: onepiece
-<img src="img/soal15_menambah=pass.png">
+<img src="img/soal15_menambah-pass.png">
 
 Lakukan konfigurasi pada file `/etc/apache2/sites-available/general.mecha.franky.d01.com.conf` agar client tidak dapat mengakses langsung halaman error
 ```
