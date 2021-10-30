@@ -44,7 +44,7 @@ Luffy ingin menghubungi Franky yang berada di EniesLobby dengan denden mushi.
 Kalian diminta Luffy untuk membuat website utama dengan mengakses franky.yyy.com 
 dengan alias www.franky.yyy.com pada folder kaizoku.<br><br>
 ### Jawaban
-# Untuk Server EniesLobby
+* Untuk Server EniesLobby
 jalankan file script.sh di EniesLobby, dan tunggu sampai download-nya selesai.<br>
 Untuk hasil download dari file script.sh sebagai berikut.
 ```
@@ -63,11 +63,6 @@ echo 'zone "franky.d01.com" {
 ```
 Selanjutnya, menambahkan direktori baru `/etc/bind/kaizoku` dengan konfigurasi `/etc/bind/kaizoku/franky.d01.com`.<br>
 ```
-echo 'zone "franky.d01.com" {
-        type master;
-        file "/etc/bind/kaizoku/franky.d01.com";
-};
-```
 $TTL    604800
     @       IN      SOA     franky.d01.com. root.franky.d01.com. (
                                 2         ; Serial
@@ -82,12 +77,13 @@ $TTL    604800
 ```
 Setelah itu lakukan restart bind9 dengan ketik command `service bind9 restart`.
 
-# Untuk Server Loguetown 
+* Untuk Server Loguetown 
 Testing 1 : Ping `franky.d01.com`
 <img src="img/soal2_testing.png">
 
 Testing 2 : Ping `www.franky.d01.com`
 <img src="img/soal2_testing1.png">
+
 ## Soal 3
 
 
