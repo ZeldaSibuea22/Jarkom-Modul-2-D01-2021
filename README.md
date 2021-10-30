@@ -390,7 +390,7 @@ RewriteRule (.*) /index.php/\$1 [L]
 ```
 
 Dari konfigurasi tersebut, kita melakukan pengecekkan apakah dari request tersebut mengarah pada file 
-atau bukan dan mengarah pada direktori atau bukan jika hal tersebut telah terpenuhi, maka kita akan membuat rule untuk melakukan direct ke /index.php/home.
+atau bukan dan mengarah pada direktori atau bukan dan jika hal tersebut telah terpenuhi, maka kita akan membuat rule untuk melakukan direct ke `/index.php/home`.
 Lalu konfigurasi file `/etc/apache2/sites-available/franky.d01.com.conf`
 
 ```
