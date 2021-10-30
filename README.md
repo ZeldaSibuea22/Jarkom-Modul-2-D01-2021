@@ -421,6 +421,38 @@ Berikut ini tampilan apabila kita menggunakan url www.franky.d01.com/home . Terl
 Setelah itu, pada subdomain www.super.franky.yyy.com, Luffy membutuhkan penyimpanan aset yang memiliki DocumentRoot pada `/var/www/super.franky.yyy.com.`
 ### Jawaban
 
+### Pada Skypie
+
+Disini kami membuat directory baru di dalam /var/www/ dengan nama super.franky.d01.com, setelah itu melakukan command wget untuk mendapatkan file asset yang akan dimasukkan kedalamnya, setelah file di download akan langsung diunzip menggunakan command unzip dan memindahkan isi folder yang berupa asset lalu menghapus folder defaultnya. Di dalam /etc/apache2/sites-available/ dibuat juga file dengan nama super.franky.d01.com.conf dan diisi dengan
+
+```
+<VirtualHost *:80>
+
+            ServerAdmin webmaster@localhost
+            ServerName super.franky.d01.com
+            ServerAlias www.super.franky.d01.com
+            DocumentRoot /var/www/super.franky.d01.com
+            
+            <Directory /var/www/franky.d01.com>
+                    Options +FollowSymLinks -Multiviews
+                    AllowOverride All
+            </Directory>
+
+            ErrorLog ${APACHE_LOG_DIR}/error.log
+            CustomLog ${APACHE_LOG_DIR}/access.log combined
+  </VirtualHost>
+```
+
+Lalu lakukan copy content ke documentroot dengan cara
+
+```
+   mkdir /var/www/super.franky.d01.com
+    cp -r /root/Praktikum-Modul-2-Jarkom-main/super.franky/. /var/www/super.franky.d01.com
+    a2ensite super.franky.d01.com
+```
+
+#### Testing
+<img src="img/soal10.png">
 
 ### Soal 11
 Akan tetapi, pada folder `/public`, Luffy ingin hanya dapat melakukan directory listing saja.
