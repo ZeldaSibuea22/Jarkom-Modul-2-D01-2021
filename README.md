@@ -155,7 +155,7 @@ echo
 ```
 * Untuk Server Loguetown<br> 
 Testing : cek dengan `host -t PTR 192.192.2.2`.
-<img src="img/soal3_testing.png">
+<img src="img/soal4_testing.png">
 
 ## Soal 5
 
