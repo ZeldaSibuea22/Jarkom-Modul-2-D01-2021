@@ -7,7 +7,7 @@ Untuk Topologi yang sudah kami buat sebagai berikut.
 
 Selanjutnya, lakukan konfigurasi setiap node yang akan dijalankan.<br>
 * Foosha
-<img src="img/ip_foosha.png width=300" >
+<img src="img/ip_foosha.png" width=300 >
 
 * Loguetown
 <img src="img/ip_loguetown.png">
