@@ -182,7 +182,7 @@ Pada konfigurasi ini bertujuan untuk melakukan konfigurasi DNS Slave yang nantin
 mengarah pada `Server Water7`. Selanjutnya lakukan restart bind9 dengan ketik command `service bind9 restart`.
 
 * Untuk Server Water7<br>
-Jalankan script.sh pada server Water7, dan tunggu sampai download-nya selesai. Kemudian, jalankan juga soal5.sh pake bash pada server Water7, lalu lakukan restart.
+Jalankan script.sh pada server Water7, dan tunggu sampai download-nya selesai. Kemudian, jalankan juga soal5.sh dengan bash pada server Water7, lalu lakukan restart.
 Selanjutnya, lakukan konfigurasi pada file `/etc/bind/named.conf.local` dengan sebagai berikut :
 ```
 zone "franky.d01.com" {
