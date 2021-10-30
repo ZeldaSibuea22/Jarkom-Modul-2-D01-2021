@@ -240,7 +240,7 @@ Setelah itu, Luffy juga membutuhkan agar url `www.franky.yyy.com/index.php/home`
 Setelah itu, pada subdomain www.super.franky.yyy.com, Luffy membutuhkan penyimpanan aset yang memiliki DocumentRoot pada `/var/www/super.franky.yyy.com.`
 ### Jawaban
 
-## Soal 11
+### Soal 11
 Akan tetapi, pada folder `/public`, Luffy ingin hanya dapat melakukan directory listing saja.
 ### Jawaban
 Pada node `Skypie`, dilakukan konfigurasi pada file `/etc/apache2/sites-available/super.franky.d01.com.conf`sebagai berikut.
@@ -276,7 +276,7 @@ lynx super.franky.d01.com/public
 ```
 
 Tampilan `super.franky.d01.com/public` adalah sebagai berikut.
-(Gambar hasil super.franky.d01.com/public)
+<img src="img/soal11.png">
 
 ## Soal 12
 Tidak hanya itu, Luffy juga menyiapkan error file 404.html pada folder `/error` untuk mengganti error kode pada apache
@@ -324,7 +324,7 @@ lynx super.franky.d01.com/huehehe
 ```
 
 Tampilan `super.franky.d01.com/huehehe` adalah sebagai berikut.
-(Gambar hasil super.franky.d01.com/huehehe)
+<img src="img/soal12.png">
 
 ## Soal 13
 Luffy juga meminta Nami untuk dibuatkan konfigurasi virtual host. Virtual host ini bertujuan untuk dapat mengakses file asset www.super.franky.yyy.com/public/js menjadi www.super.franky.yyy.com/js
@@ -381,11 +381,11 @@ lynx super.franky.d01.com/js
 ```
 
 Tampilan `super.franky.d01.com/js` adalah sebagai berikut.
-(Gambar hasil super.franky.d01.com/js)
+<img src="img/soal13.png">
 
 ## Soal 14
 Dan Luffy meminta untuk web www.general.mecha.franky.yyy.com hanya bisa diakses dengan port 15000 dan port 15500
-## Jawaban
+### Jawaban
 Pada node `Skypie`, copy file `000-default.conf` ke `general.mecha.franky.d01.conf` sebagai file konfigurasi domain mecha.franky.d01.conf
 ```
 cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/general.mecha.franky.d01.conf
@@ -440,24 +440,25 @@ Kemudian, lakukan pengecekan di `Alabasta` dengan port 15000
 ```
 lynx general.mecha.franky.d01.com:15000
 ```
-(Gambar lynx general.mecha.franky.d01.com:15000)
+<img src="img/soal14_15000.png">
 
 Pengecekan dengan port 15500
 ```
 lynx general.mecha.franky.d01.com:15500
 ```
-(Gambar lynx general.mecha.franky.d01.com:15500)
+<img src="img/soal14_15500.png">
 
 ## Soal 15
 Web www.general.mecha.franky.yyy.com dengan autentikasi username luffy dan password onepiece dan file di /var/www/general.mecha.franky.yyy
-## Jawaban
+### Jawaban
 Pada node `Skypie` buat konfigurasi username dan password di file `.htpasswd`
 ```
 htpasswd -c /etc/apache2/.htpasswd luffy
 ```
 Kemudian isi password dengan: onepiece
+<img src="img/soal15_menambah=pass.png">
 
-Lakukan konfigurasi pada file `/etc/apache2/sites-available/general.mecha.franky.d01.com.conf`
+Lakukan konfigurasi pada file `/etc/apache2/sites-available/general.mecha.franky.d01.com.conf` agar client tidak dapat mengakses langsung halaman error
 ```
 <VirtualHost *:15000 *:15500>
     ServerAdmin webmaster@localhost
@@ -487,11 +488,18 @@ Kemudian, lakukan pengecekan di `Alabasta` dengan port 15000
 ```
 lynx general.mecha.franky.d01.com:15000
 ```
-(Gambar minta username dan password 15000)
+<img src="img/soal15_15000_username.png">
+
+<img src="img/soal15_15000_password.png">
+
+<img src="img/soal15_15000_hasil.png">
 
 Pengecekan dengan port 15500
 ```
 lynx general.mecha.franky.d01.com:15500
 ```
-(Gambar minta username dan password 15500)
-(Gambar setelah isi username dan password)
+<img src="img/soal15_15500_username.png">
+
+<img src="img/soal15_15500_password.png">
+
+<img src="img/soal15_15500_hasil.png">
