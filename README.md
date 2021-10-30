@@ -292,7 +292,11 @@ Dapat dilihat bahwa kami membuat sebuah domain general dan alias www untuk gener
 Setelah itu lakukan restart dengan menggunakan `service bind9 restart`
 
 #### Testing
+ping general.mecha.franky.d01.com
+<img src="img/soal7_testing2.png">
 
+ping www.general.mecha.franky.d01.com
+<img src="img/soal7_testing1.png">
 
 ## Soal 8
 Setelah melakukan konfigurasi server, maka dilakukan konfigurasi Webserver. Pertama dengan webserver www.franky.yyy.com. Pertama, luffy membutuhkan webserver dengan DocumentRoot pada `/var/www/franky.yyy.com.`
@@ -327,6 +331,7 @@ Lalu,buat sebuah direkroti root untuk server franky.d01.com dan melakukan copy f
 
 #### Testing
 Jika melakukan perintah `lynx franky.d01.com` pada LogueTown, maka akan ditampilkan hasil seperti berikut ini
+![image](https://user-images.githubusercontent.com/73489643/139536471-c40b0d90-f05c-4307-a833-68a8511de845.png)
 
 
 
