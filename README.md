@@ -7,22 +7,22 @@ Untuk Topologi yang sudah kami buat sebagai berikut.
 
 Selanjutnya, lakukan konfigurasi setiap node yang akan dijalankan.<br>
 * Foosha
-<img src="img/ip_foosha.png" width=300 >
+<img src="img/ip_foosha.png" width=500 >
 
 * Loguetown
-<img src="img/ip_loguetown.png">
+<img src="img/ip_loguetown.png" width=500>
 
 * Alabasta
-<img src="img/ip_alabasta.png">
+<img src="img/ip_alabasta.png" width=500>
 
 * Ennieslobby
-<img src="img/ip_ennieslobby.png">
+<img src="img/ip_ennieslobby.png" width=500>
 
 * Water7
-<img src="img/ip_water7.png">
+<img src="img/ip_water7.png" width=500>
 
 * Skypie
-<img src="img/ip_skypie.png">
+<img src="img/ip_skypie.png" width=500>
 
 Kemudian, semua node diaktifkan dan juga jalankan
 ```
